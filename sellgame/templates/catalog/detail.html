@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+{% if category %}{{ category.title }}{% else %}Игры | SellGame{% endif %}
+{% endblock %}
+{% block content %}
+
+<div class="page-wrapper">
+    <div class="content-wrapper">
+        <div class="content">
+            <img src="{% if product.photo %}{{ product.photo.url }}{% else %}{% static ' img/no_image.png' %}{% endif %}"
+                 width="150">
+            <h1>{{ product.name }}</h1>
+            <h3><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h3>
+            <p class="price"> &#x20bd {{ product.price }}</p>
+            <p>Всего осталось: {{ product.stock }} ключа</p>
+            {{ product.description|linebreaks }}
+            <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                {{ cart_product_form }}
+                {% csrf_token %}
+                <input type="submit" value="Добавить в корзину">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
