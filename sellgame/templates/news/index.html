@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Новости | SellGame
+{% endblock %}
+{% block content %}
+<div class="page-wrapper">
+    <div class="left-panel-wrapper">
+        <div class="left-panel">
+
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="content">
+            <ul>
+                {% for new in News %}
+                {% if new.photo %}
+                <p><img src="{{ new.photo.url }}" width="250"></p>
+                {% endif %}
+                <li><h5>{{ new.title }}</h5></li>
+                <br>
+                {{ new.content|linebreaks }}
+                <br>{{ new.time_create }}
+                <hr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="right-panel-wrapper">
+        <div class="right-panel">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
