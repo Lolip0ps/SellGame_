@@ -11,6 +11,7 @@ urlpatterns = [
     path('catalog/', include('catalog.urls', namespace='shop')),
     path('orders/', include('order.urls', namespace='order')),
     path('account/', include('users.urls')),
+    path('api/', include('drf.urls', namespace='drf')),
 
 ]
 
