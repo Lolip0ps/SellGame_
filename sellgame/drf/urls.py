@@ -1,9 +1,8 @@
 from django.urls import path, re_path
-from drf import views
-
-
+from drf.views import *
 
 app_name = 'drf'
 urlpatterns = [
-    path('v1/newslist/', views.NewsAPIList.as_view()),
+    path('v1/newslist/', NewsAPIView.as_view()),
+    path('v1/newslist/<int:pk>/', NewsAPIView.as_view()),
 ]
