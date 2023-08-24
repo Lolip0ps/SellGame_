@@ -1,8 +1,12 @@
-from django.urls import path, re_path
+from django.urls import path, re_path, include
 from drf.views import *
 
 app_name = 'drf'
 urlpatterns = [
-    path('v1/newslist/', NewsAPIView.as_view()),
-    path('v1/newslist/<int:pk>/', NewsAPIView.as_view()),
+    path('v1/news/', NewsAPIList.as_view()),
+    path('v1/drf-auth/', include('rest_framework.urls')),
+    path('v1/news/<int:pk>/', NewsAPIUpdate.as_view()),
+    path('v1/newsdelete/<int:pk>/', NewsAPIDestroy.as_view()),
+    path('api/v1/auth/', include('djoser.urls')),  # new
+    re_path(r'^auth/', include('djoser.urls.authtoken')),  # new
 ]
