@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Оформление заказа | SellGame
+{% endblock %}
+{% block content %}
+<div class="page-wrapper">
+    <div class="left-panel-wrapper">
+        <div class="left-panel">
+
+        </div>
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <h1>Спасибо за заказ</h1>
+            <p>Проверьте вашу почту</p>
+            <p>Ваш номер заказа : <strong>{{ order.id }}</strong>.</p>
+        </div>
+    </div>
+    <div class="right-panel-wrapper">
+        <div class="right-panel">
+
+        </div>
+    </div>
+</div>
+{% endblock %}
