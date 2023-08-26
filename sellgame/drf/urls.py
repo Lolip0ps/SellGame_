@@ -9,4 +9,7 @@ urlpatterns = [
     path('v1/newsdelete/<int:pk>/', NewsAPIDestroy.as_view()),
     path('/v1/auth/', include('djoser.urls')),  # new
     re_path(r'^auth/', include('djoser.urls.authtoken')),  # new
+    path('v1/cat/', CatalogAPIList.as_view()),
+    path('v1/cat/<int:pk>/', CatalogAPIUpdate.as_view()),
+    path('v1/catdestroy/<int:pk>/', CatalogAPIDestroy.as_view()),
 ]
